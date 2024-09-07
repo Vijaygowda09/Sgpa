@@ -2,22 +2,23 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>4th Semester SGPA Calculator</title>
+    <title>SGPA Calculator</title>
     <link rel="stylesheet" href="styles/style1.css">
 </head>
 <body>
     <nav>
         <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
         <ul id="nav-links" class="hidden">
-            <li><a href="index.html">4th Sem SGPA</a></li>
-            <li><a href="first.html">1st Sem SGPA</a></li>
-            <li><a href="second.html">2nd Sem SGPA</a></li>
-            <li><a href="third.html">3rd Sem SGPA</a></li>
+            <li><a href="#" onclick="showSem('4th Sem SGPA')">4th Sem SGPA</a></li>
+            <li><a href="#" onclick="showSem('1st Sem SGPA')">1st Sem SGPA</a></li>
+            <li><a href="#" onclick="showSem('2nd Sem SGPA')">2nd Sem SGPA</a></li>
+            <li><a href="#" onclick="showSem('3rd Sem SGPA')">3rd Sem SGPA</a></li>
         </ul>
     </nav>
+    <div id="sem-sgpa"></div>
     <center>
         <div class="container">
-            <b id="h">4th Sem SGPA CALCULATOR</b>
+            <b id="h">SGPA CALCULATOR</b>
             <br><br>
             <label>B**401:</label>
             <br>
@@ -100,6 +101,10 @@
         function toggleMenu() {
             const navLinks = document.getElementById('nav-links');
             navLinks.classList.toggle('hidden');
+        }
+        function showSem(sem) {
+            document.getElementById('sem-sgpa').innerHTML = sem;
+            toggleMenu(); // hide the menu after selecting an option
         }
     </script>
 </body>
