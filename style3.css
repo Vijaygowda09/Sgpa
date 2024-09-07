@@ -1,0 +1,32 @@
+body {
+    background-color: #e6e6fa;
+}
+
+.container {
+    background-color: #6a5acd;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+nav ul {
+    background-color: #6a5acd;
+    padding: 10px;
+    list-style-type: none;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
