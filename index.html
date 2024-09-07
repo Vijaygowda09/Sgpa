@@ -58,6 +58,20 @@
         </div>
     </center>
     <script>
+        function toggleMenu() {
+            const navLinks = document.getElementById('nav-links');
+            if (navLinks.classList.contains('hidden')) {
+                navLinks.classList.remove('hidden');
+            } else {
+                navLinks.classList.add('hidden');
+            }
+        }
+
+        function showSem(sem) {
+            document.getElementById('sem-sgpa').innerHTML = sem;
+            toggleMenu(); // hide the menu after selecting an option
+        }
+
         function calculate() {
             var a = parseInt(document.getElementById("mat").value);
             var b = parseInt(document.getElementById("che").value);
@@ -86,8 +100,7 @@
                 alert("Enough enough, it's more enough for 20000Rs.");
             }
         }
-
-        function marks(y) {
+function marks(y) {
             if (y >= 90) return 10;
             else if (y >= 80) return 9;
             else if (y >= 70) return 8;
@@ -96,15 +109,6 @@
             else if (y >= 45) return 5;
             else if (y >= 40) return 4;
             else return 0;
-        }
-
-        function toggleMenu() {
-            const navLinks = document.getElementById('nav-links');
-            navLinks.classList.toggle('hidden');
-        }
-        function showSem(sem) {
-            document.getElementById('sem-sgpa').innerHTML = sem;
-            toggleMenu(); // hide the menu after selecting an option
         }
     </script>
 </body>
