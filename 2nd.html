@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>2nd Semester SGPA Calculator</title>
-    <link rel="stylesheet" href="styles/style3.css">
+    <link rel="stylesheet" href="styles/style.css">
     <script>
         function calculate() {
             var a = parseInt(document.getElementById("mat").value);
@@ -25,7 +25,6 @@
             var ah = 1 * marks(h);
 
             var z = ((aa + ab + ac + ad + ae + af + ag + ah) / 200) * 10;
-
             document.getElementById("res").value = parseFloat(z).toFixed(2);
         }
 
@@ -39,55 +38,45 @@
             else if (y <= 44 && y >= 40) return 4;
             else return 0;
         }
+
         function toggleMenu() {
-            const navLinks = document.getElementById('nav-links');
-            navLinks.classList.toggle('hidden');
+            document.getElementById("nav-menu").classList.toggle("show");
         }
     </script>
 </head>
 <body>
-    <nav>
-        <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
-        <ul id="nav-links" class="hidden">
-            <li><a href="index.html">4th Sem SGPA</a></li>
-            <li><a href="first.html">1st Sem SGPA</a></li>
-            <li><a href="second.html">2nd Sem SGPA</a></li>
-            <li><a href="third.html">3rd Sem SGPA</a></li>
-        </ul>
-    </nav>
+    <div class="hamburger" onclick="toggleMenu()">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+
+    <div class="nav-menu" id="nav-menu">
+        <a href="index.html">4th Sem SGPA</a>
+        <a href="1st.html">1st Sem SGPA</a>
+        <a href="3rd.html">3rd Sem SGPA</a>
+    </div>
 
     <center>
         <div class="container">
             <b id="h">2nd Sem SGPA CALCULATOR</b>
-            <!-- Add input fields and calculator similar to index.html but for 2nd sem subjects -->
-            <br><br>
-            
-            <label>BMATS201 : </label><br>
+            <label>BMATS201:</label><br>
             <input type="text" id="mat"><br>
-            
-            <label>BCHES202/BPHYS202 : </label><br>
+            <label>BCHES202/BPHYS202:</label><br>
             <input type="text" id="che"><br>
-            
-            <label>BESCK204B/BESCK204C : </label><br>
+            <label>BESCK204B/BESCK204C:</label><br>
             <input type="text" id="psp"><br>
-            
-            <label>BETCK205H/BPLCK205A : </label><br>
+            <label>BETCK205H/BPLCK205A:</label><br>
             <input type="text" id="eln"><br>
-            
-            <label>BCEDK203/BPOPS203 : </label><br>
+            <label>BCEDK203/BPOPS203:</label><br>
             <input type="text" id="eme"><br>
-            
-            <label>BIDTK258/BSFHK258 : </label><br>
+            <label>BIDTK258/BSFHK258:</label><br>
             <input type="text" id="chel"><br>
-            
-            <label>BKSKK207/BICOK207 : </label><br>
+            <label>BKSKK207/BICOK207:</label><br>
             <input type="text" id="cpl"><br>
-            
-            <label>BPWSK20C : </label><br>
-            <input type="text" id="egh"><br>
-
-            <input type="button" value="Calculate" id="calc" onclick="calculate()"><br>
-
+            <label>BPWSK20C:</label><br>
+            <input type="text" id="egh"><br><br>
+            <input type="button" value="Calculate" id="calc" onclick="calculate()"><br><br>
             <p style="color:red; font-size:large">Your SGPA is:</p>
             <input type="text" id="res" disabled>
         </div>
