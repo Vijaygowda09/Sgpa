@@ -25,9 +25,7 @@
             var ah = 1 * marks(h);
 
             var z = ((aa + ab + ac + ad + ae + af + ag + ah) / 190) * 10;
-            var sgpa = parseFloat(z).toFixed(2);
-
-            document.getElementById("res").value = sgpa;
+            document.getElementById("res").value = parseFloat(z).toFixed(2);
         }
 
         function marks(y) {
@@ -48,9 +46,9 @@
 </head>
 <body>
     <div class="hamburger" onclick="toggleMenu()">
-        <div class="line"></div>
-        <div class="line"></div>
-        <div class="line"></div>
+        <div></div>
+        <div></div>
+        <div></div>
     </div>
 
     <div class="nav-menu" id="nav-menu">
@@ -62,7 +60,6 @@
     <center>
         <div class="container">
             <b id="h">4th Sem SGPA CALCULATOR</b>
-            <br><br>
             <label>B**401:</label><br>
             <input type="text" id="mat"><br>
             <label>B**402:</label><br>
@@ -79,7 +76,7 @@
             <input type="text" id="cpl"><br>
             <label>BUHK408:</label><br>
             <input type="text" id="egh"><br><br>
-            <input type="button" value="calculate" id="calc" onclick="calculate()">
+            <input type="button" value="Calculate" id="calc" onclick="calculate()"><br><br>
             <p style="color:red; font-size:large">Your SGPA is:</p>
             <input type="text" id="res" disabled>
         </div>
