@@ -4,21 +4,87 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>SGPA Calculator - 1st Sem</title>
     <style>
-        body { font-family: Arial, sans-serif; margin: 0; background-color: #f4f4f4; }
-        .menu { display: block; background-color: #333; padding: 10px; text-align: center; }
-        .menu a { padding: 14px 20px; display: block; color: white; text-decoration: none; }
-        .menu a:hover { background-color: #ddd; color: black; }
-        .hamburger { display: block; background-color: #333; color: white; padding: 10px; text-align: center; cursor: pointer; }
-        .menu-items { display: none; }
-        .container { padding: 20px; background-color: white; margin: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); }
-        input, button { margin: 10px 0; }
-        #calc { background-color: #007bff; color: white; padding: 10px 20px; border: none; border-radius: 5px; }
-        #res { font-size: 1.5em; width: 150px; background-color: #e9ecef; border: none; text-align: center; color: red; }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .menu-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 250px;
+            background-color: #333;
+            height: 100%;
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+        }
+
+        .menu-container.open {
+            transform: translateX(0);
+        }
+
+        .menu a {
+            padding: 14px 20px;
+            display: block;
+            color: white;
+            text-decoration: none;
+        }
+
+        .menu a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .hamburger {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        .container {
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        input, button {
+            margin: 10px 0;
+        }
+
+        #calc {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        #res {
+            font-size: 1.5em;
+            width: 150px;
+            background-color: #e9ecef;
+            border: none;
+            text-align: center;
+            color: red;
+        }
     </style>
     <script>
         function toggleMenu() {
-            const menu = document.querySelector('.menu-items');
-            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+            const menu = document.querySelector('.menu-container');
+            menu.classList.toggle('open');
         }
 
         function calculate() {
@@ -58,9 +124,9 @@
 </head>
 <body>
 
-    <div class="hamburger" onclick="toggleMenu()">
-        ☰ Menu</div>
-    <div class="menu-items">
+    <div class="hamburger" onclick="toggleMenu()">☰ Menu</div>
+    
+    <div class="menu-container">
         <div class="menu"><a href="index.html">4th Sem SGPA</a></div>
         <div class="menu"><a href="2nd.html">2nd Sem SGPA</a></div>
         <div class="menu"><a href="3rd.html">3rd Sem SGPA</a></div>
