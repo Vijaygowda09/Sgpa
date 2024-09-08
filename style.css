@@ -1,60 +1,27 @@
-/* Hamburger Menu */
-.hamburger {
-    display: inline-block;
-    cursor: pointer;
-}
-
-.hamburger .line {
-    width: 30px;
-    height: 5px;
-    background-color: #000;
-    margin: 4px 0;
-}
-
-.nav-menu {
-    display: none;
-    flex-direction: column;
-    background-color: #e9ecef;
-    position: absolute;
-    top: 60px;
-    right: 10px;
-    width: 200px;
-    padding: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.nav-menu a {
-    text-decoration: none;
-    color: #007bff;
-    font-size: 18px;
-    margin: 10px 0;
-}
-
-.nav-menu.show {
-    display: flex;
-}
-
-/* Shared Styles for SGPA calculator */
+/* General styles */
 body {
-    background-color: #f8f9fa;
     font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
 }
 
 .container {
-    background-color: white;
+    background-color: #ffffff;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin-top: 50px;
+    width: 90%;
+    max-width: 600px;
 }
 
 #calc {
     background-color: #007bff;
     color: white;
-    padding: 0.5% 2%;
-    font-size: 100%;
+    padding: 10px 20px;
+    font-size: 16px;
     border: none;
     border-radius: 5px;
+    cursor: pointer;
 }
 
 label {
@@ -64,20 +31,67 @@ label {
 
 input {
     background-color: #f8f9fa;
-    margin: 1% 0 2% 0;
+    margin: 10px 0;
     font-weight: bold;
     text-align: center;
-    font-size: 100%;
+    font-size: 16px;
     border: 1px solid #ced4da;
     border-radius: 5px;
-    padding: 5px;
+    padding: 10px;
+    width: 100%;
 }
 
 #res {
-    font-size: 200%;
-    width: 150px;
+    font-size: 24px;
     background-color: #ffffff;
     color: #28a745;
     border: none;
     text-align: center;
+}
+
+#h {
+    color: #007bff;
+    font-size: x-large;
+    margin-bottom: 7%;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+/* Hamburger menu */
+.hamburger {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    z-index: 100;
+}
+
+.hamburger div {
+    width: 30px;
+    height: 5px;
+    background-color: #007bff;
+    margin: 6px 0;
+}
+
+.nav-menu {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 50px;
+    right: 20px;
+    background-color: #ffffff;
+    border: 1px solid #ced4da;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 99;
+}
+
+.nav-menu.show {
+    display: flex;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: #007bff;
+    font-size: 18px;
+    margin: 10px 0;
 }
