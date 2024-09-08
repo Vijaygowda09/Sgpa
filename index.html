@@ -1,10 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>4th Semester SGPA Calculator</title>
-    <link rel="stylesheet" href="styles/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SGPA Calculator - 4th Sem</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+
+        .menu {
+            display: block;
+            background-color: #333;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .menu a {
+            padding: 14px 20px;
+            display: block;
+            color: white;
+            text-decoration: none;
+        }
+
+        .menu a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .hamburger {
+            display: block;
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .menu-items {
+            display: none;
+        }
+
+        .container {
+            padding: 20px;
+            background-color: white;
+            margin: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        input, button {
+            margin: 10px 0;
+        }
+
+        #calc {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        #res {
+            font-size: 1.5em;
+            width: 150px;
+            background-color: #e9ecef;
+            border: none;
+            text-align: center;
+            color: red;
+        }
+
+    </style>
     <script>
+        function toggleMenu() {
+            const menu = document.querySelector('.menu-items');
+            if (menu.style.display === 'block') {
+                menu.style.display = 'none';
+            } else {
+                menu.style.display = 'block';
+            }
+        }
+
         function calculate() {
             var a = parseInt(document.getElementById("mat").value);
             var b = parseInt(document.getElementById("che").value);
@@ -25,7 +102,9 @@
             var ah = 1 * marks(h);
 
             var z = ((aa + ab + ac + ad + ae + af + ag + ah) / 190) * 10;
-            document.getElementById("res").value = parseFloat(z).toFixed(2);
+            var sgpa = parseFloat(z).toFixed(2);
+
+            document.getElementById("res").value = sgpa;
         }
 
         function marks(y) {
@@ -38,48 +117,31 @@
             else if (y >= 40) return 4;
             else return 0;
         }
-
-        function toggleMenu() {
-            document.getElementById("nav-menu").classList.toggle("show");
-        }
     </script>
 </head>
 <body>
-    <div class="hamburger" onclick="toggleMenu()">
-        <div></div>
-        <div></div>
-        <div></div>
+
+    <div class="hamburger" onclick="toggleMenu()">☰ Menu</div>
+    <div class="menu-items">
+        <div class="menu"><a href="1st.html">1st Sem SGPA</a></div>
+        <div class="menu"><a href="2nd.html">2nd Sem SGPA</a></div>
+        <div class="menu"><a href="3rd.html">3rd Sem SGPA</a></div>
     </div>
 
-    <div class="nav-menu" id="nav-menu">
-        <a href="1st.html">1st Sem SGPA</a>
-        <a href="2nd.html">2nd Sem SGPA</a>
-        <a href="3rd.html">3rd Sem SGPA</a>
+    <div class="container">
+        <h2>4th Sem SGPA Calculator</h2>
+        <label>B**401:</label><br><input type="text" id="mat"><br>
+        <label>B**402:</label><br><input type="text" id="che"><br>
+        <label>B**403:</label><br><input type="text" id="psp"><br>
+        <label>B**L404:</label><br><input type="text" id="eln"><br>
+        <label>B**405:</label><br><input type="text" id="eme"><br>
+        <label>B**456:</label><br><input type="text" id="chel"><br>
+        <label>BBOC***:</label><br><input type="text" id="cpl"><br>
+        <label>BUHK408:</label><br><input type="text" id="egh"><br><br>
+        <button id="calc" onclick="calculate()">Calculate</button><br>
+        <p>Your SGPA is:</p>
+        <input type="text" id="res" disabled><br>
     </div>
 
-    <center>
-        <div class="container">
-            <b id="h">4th Sem SGPA CALCULATOR</b>
-            <label>B**401:</label><br>
-            <input type="text" id="mat"><br>
-            <label>B**402:</label><br>
-            <input type="text" id="che"><br>
-            <label>B**403:</label><br>
-            <input type="text" id="psp"><br>
-            <label>B**L404:</label><br>
-            <input type="text" id="eln"><br>
-            <label>B**405*:</label><br>
-            <input type="text" id="eme"><br>
-            <label>B**456*:</label><br>
-            <input type="text" id="chel"><br>
-            <label>BBOC***:</label><br>
-            <input type="text" id="cpl"><br>
-            <label>BUHK408:</label><br>
-            <input type="text" id="egh"><br><br>
-            <input type="button" value="Calculate" id="calc" onclick="calculate()"><br><br>
-            <p style="color:red; font-size:large">Your SGPA is:</p>
-            <input type="text" id="res" disabled>
-        </div>
-    </center>
 </body>
 </html>
