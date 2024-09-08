@@ -1,77 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>SGPA Calculator</title>
-    <link rel="stylesheet" href="styles/style1.css">
-</head>
-<body>
-    <nav>
-        <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
-        <ul id="nav-links" class="hidden">
-            <li><a href="#" onclick="showSem('4th Sem SGPA')">4th Sem SGPA</a></li>
-            <li><a href="#" onclick="showSem('1st Sem SGPA')">1st Sem SGPA</a></li>
-            <li><a href="#" onclick="showSem('2nd Sem SGPA')">2nd Sem SGPA</a></li>
-            <li><a href="#" onclick="showSem('3rd Sem SGPA')">3rd Sem SGPA</a></li>
-        </ul>
-    </nav>
-    <div id="sem-sgpa"></div>
-    <center>
-        <div class="container">
-            <b id="h">SGPA CALCULATOR</b>
-            <br><br>
-            <label>B**401:</label>
-            <br>
-            <input type="text" id="mat">
-            <br>
-            <label>B**402:</label>
-            <br>
-            <input type="text" id="che">
-            <br>
-            <label>B**403:</label>
-            <br>
-            <input type="text" id="psp">
-            <br>
-            <label>B**L404:</label>
-            <br>
-            <input type="text" id="eln">
-            <br>
-            <label>B**405*:</label>
-            <br>
-            <input type="text" id="eme">
-            <br>
-            <label>B**456*:</label>
-            <br>
-            <input type="text" id="chel">
-            <br>
-            <label>BBOC***:</label>
-            <br>
-            <input type="text" id="cpl">
-            <br>
-            <label>BUHK408:</label>
-            <br>
-            <input type="text" id="egh">
-            <br><br>
-            <input type="button" value="Calculate" id="calc" onclick="calculate()">
-            <p style="color:red; font-size:large">Your SGPA is</p>
-            <input type="text" id="res" disabled>
-        </div>
-    </center>
+    <title>4th Semester SGPA Calculator</title>
+    <link rel="stylesheet" href="styles/style.css">
     <script>
-        function toggleMenu() {
-            const navLinks = document.getElementById('nav-links');
-            if (navLinks.classList.contains('hidden')) {
-                navLinks.classList.remove('hidden');
-            } else {
-                navLinks.classList.add('hidden');
-            }
-        }
-
-        function showSem(sem) {
-            document.getElementById('sem-sgpa').innerHTML = sem;
-            toggleMenu(); // hide the menu after selecting an option
-        }
-
         function calculate() {
             var a = parseInt(document.getElementById("mat").value);
             var b = parseInt(document.getElementById("che").value);
@@ -81,6 +14,7 @@
             var f = parseInt(document.getElementById("chel").value);
             var g = parseInt(document.getElementById("cpl").value);
             var h = parseInt(document.getElementById("egh").value);
+
             var aa = 3 * marks(a);
             var ab = 4 * marks(b);
             var ac = 4 * marks(c);
@@ -89,18 +23,14 @@
             var af = 1 * marks(f);
             var ag = 2 * marks(g);
             var ah = 1 * marks(h);
+
             var z = ((aa + ab + ac + ad + ae + af + ag + ah) / 190) * 10;
             var sgpa = parseFloat(z).toFixed(2);
+
             document.getElementById("res").value = sgpa;
-            if (sgpa > 8.5) {
-                alert("Well done, congratulations🥳🥳!");
-            } else if (sgpa >= 8 && sgpa <= 8.5) {
-                alert("Chill, Congrats!");
-            } else {
-                alert("Enough enough, it's more enough for 20000Rs.");
-            }
         }
-function marks(y) {
+
+        function marks(y) {
             if (y >= 90) return 10;
             else if (y >= 80) return 9;
             else if (y >= 70) return 8;
@@ -110,6 +40,49 @@ function marks(y) {
             else if (y >= 40) return 4;
             else return 0;
         }
+
+        function toggleMenu() {
+            document.getElementById("nav-menu").classList.toggle("show");
+        }
     </script>
+</head>
+<body>
+    <div class="hamburger" onclick="toggleMenu()">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+    </div>
+
+    <div class="nav-menu" id="nav-menu">
+        <a href="1st.html">1st Sem SGPA</a>
+        <a href="2nd.html">2nd Sem SGPA</a>
+        <a href="3rd.html">3rd Sem SGPA</a>
+    </div>
+
+    <center>
+        <div class="container">
+            <b id="h">4th Sem SGPA CALCULATOR</b>
+            <br><br>
+            <label>B**401:</label><br>
+            <input type="text" id="mat"><br>
+            <label>B**402:</label><br>
+            <input type="text" id="che"><br>
+            <label>B**403:</label><br>
+            <input type="text" id="psp"><br>
+            <label>B**L404:</label><br>
+            <input type="text" id="eln"><br>
+            <label>B**405*:</label><br>
+            <input type="text" id="eme"><br>
+            <label>B**456*:</label><br>
+            <input type="text" id="chel"><br>
+            <label>BBOC***:</label><br>
+            <input type="text" id="cpl"><br>
+            <label>BUHK408:</label><br>
+            <input type="text" id="egh"><br><br>
+            <input type="button" value="calculate" id="calc" onclick="calculate()">
+            <p style="color:red; font-size:large">Your SGPA is:</p>
+            <input type="text" id="res" disabled>
+        </div>
+    </center>
 </body>
 </html>
