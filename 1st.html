@@ -1,10 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>1st Semester SGPA Calculator</title>
-    <link rel="stylesheet" href="styles/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SGPA Calculator - 1st Sem</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; background-color: #f4f4f4; }
+        .menu { display: block; background-color: #333; padding: 10px; text-align: center; }
+        .menu a { padding: 14px 20px; display: block; color: white; text-decoration: none; }
+        .menu a:hover { background-color: #ddd; color: black; }
+        .hamburger { display: block; background-color: #333; color: white; padding: 10px; text-align: center; cursor: pointer; }
+        .menu-items { display: none; }
+        .container { padding: 20px; background-color: white; margin: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); }
+        input, button { margin: 10px 0; }
+        #calc { background-color: #007bff; color: white; padding: 10px 20px; border: none; border-radius: 5px; }
+        #res { font-size: 1.5em; width: 150px; background-color: #e9ecef; border: none; text-align: center; color: red; }
+    </style>
     <script>
+        function toggleMenu() {
+            const menu = document.querySelector('.menu-items');
+            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+        }
+
         function calculate() {
             var a = parseInt(document.getElementById("mat").value);
             var b = parseInt(document.getElementById("che").value);
@@ -30,57 +46,40 @@
 
         function marks(y) {
             if (y >= 90) return 10;
-            else if (y <= 89 && y >= 80) return 9;
-            else if (y
-            else if (y <= 79 && y >= 70) return 8;
-            else if (y <= 69 && y >= 60) return 7;
-            else if (y <= 59 && y >= 50) return 6;
-            else if (y <= 49 && y >= 45) return 5;
-            else if (y <= 44 && y >= 40) return 4;
+            else if (y >= 80) return 9;
+            else if (y >= 70) return 8;
+            else if (y >= 60) return 7;
+            else if (y >= 50) return 6;
+            else if (y >= 45) return 5;
+            else if (y >= 40) return 4;
             else return 0;
-        }
-
-        function toggleMenu() {
-            document.getElementById("nav-menu").classList.toggle("show");
         }
     </script>
 </head>
 <body>
+
     <div class="hamburger" onclick="toggleMenu()">
-        <div></div>
-        <div></div>
-        <div></div>
+        ☰ Menu</div>
+    <div class="menu-items">
+        <div class="menu"><a href="index.html">4th Sem SGPA</a></div>
+        <div class="menu"><a href="2nd.html">2nd Sem SGPA</a></div>
+        <div class="menu"><a href="3rd.html">3rd Sem SGPA</a></div>
     </div>
 
-    <div class="nav-menu" id="nav-menu">
-        <a href="index.html">4th Sem SGPA</a>
-        <a href="2nd.html">2nd Sem SGPA</a>
-        <a href="3rd.html">3rd Sem SGPA</a>
+    <div class="container">
+        <h2>1st Sem SGPA Calculator</h2>
+        <label>Subject 1:</label><br><input type="text" id="mat"><br>
+        <label>Subject 2:</label><br><input type="text" id="che"><br>
+        <label>Subject 3:</label><br><input type="text" id="psp"><br>
+        <label>Subject 4:</label><br><input type="text" id="eln"><br>
+        <label>Subject 5:</label><br><input type="text" id="eme"><br>
+        <label>Subject 6 (Lab 1):</label><br><input type="text" id="chel"><br>
+        <label>Subject 7 (Lab 2):</label><br><input type="text" id="cpl"><br>
+        <label>Subject 8 (Lab 3):</label><br><input type="text" id="egh"><br><br>
+        <button id="calc" onclick="calculate()">Calculate</button><br>
+        <p>Your SGPA is:</p>
+        <input type="text" id="res" disabled><br>
     </div>
 
-    <center>
-        <div class="container">
-            <b id="h">1st Sem SGPA CALCULATOR</b>
-            <label>BMATS101:</label><br>
-            <input type="text" id="mat"><br>
-            <label>BCHES102/BPHYS102:</label><br>
-            <input type="text" id="che"><br>
-            <label>BESCK104B/BESCK104C:</label><br>
-            <input type="text" id="psp"><br>
-            <label>BETCK105H/BETCK105I:</label><br>
-            <input type="text" id="eln"><br>
-            <label>BCEDK103:</label><br>
-            <input type="text" id="eme"><br>
-            <label>BIDTK58/BSFHK158:</label><br>
-            <input type="text" id="chel"><br>
-            <label>BKSKK107/BICOK107:</label><br>
-            <input type="text" id="cpl"><br>
-            <label>BENGK106:</label><br>
-            <input type="text" id="egh"><br><br>
-            <input type="button" value="Calculate" id="calc" onclick="calculate()"><br><br>
-            <p style="color:red; font-size:large">Your SGPA is:</p>
-            <input type="text" id="res" disabled>
-        </div>
-    </center>
 </body>
 </html>
