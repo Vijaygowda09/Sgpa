@@ -8,31 +8,25 @@
             font-family: Arial, sans-serif;
             margin: 0;
             background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
         }
 
-        .hamburger {
-            display: block;
-            background-color: #333;
-            color: white;
-            padding: 10px;
-            text-align: left;  /* Align text to the left */
-            cursor: pointer;
-            position: absolute; /* Absolute positioning */
-            top: 0;
-            left: 0;
-            width: 100px; /* Adjust the width of the hamburger container */
-        }
-
-        .menu-items {
-            display: none;
+        .menu-container {
             position: fixed;
             top: 0;
             left: 0;
-            height: 100%;
-            width: 200px;
+            width: 250px;
             background-color: #333;
-            padding-top: 60px;
-            z-index: 1;
+            height: 100%;
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+        }
+
+        .menu-container.open {
+            transform: translateX(0);
         }
 
         .menu a {
@@ -40,7 +34,6 @@
             display: block;
             color: white;
             text-decoration: none;
-            text-align: left;
         }
 
         .menu a:hover {
@@ -48,12 +41,23 @@
             color: black;
         }
 
+        .hamburger {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 10;
+        }
+
         .container {
             padding: 20px;
             background-color: white;
-            margin: 20px;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
         }
 
         input, button {
@@ -76,16 +80,11 @@
             text-align: center;
             color: red;
         }
-
     </style>
     <script>
         function toggleMenu() {
-            const menu = document.querySelector('.menu-items');
-            if (menu.style.display === 'block') {
-                menu.style.display = 'none';
-            } else {
-                menu.style.display = 'block';
-            }
+            const menu = document.querySelector('.menu-container');
+            menu.classList.toggle('open');
         }
 
         function calculate() {
@@ -128,7 +127,8 @@
 <body>
 
     <div class="hamburger" onclick="toggleMenu()">☰ Menu</div>
-    <div class="menu-items">
+    
+    <div class="menu-container">
         <div class="menu"><a href="1st.html">1st Sem SGPA</a></div>
         <div class="menu"><a href="2nd.html">2nd Sem SGPA</a></div>
         <div class="menu"><a href="3rd.html">3rd Sem SGPA</a></div>
