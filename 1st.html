@@ -108,6 +108,13 @@
 
             var z = ((aa + ab + ac + ad + ae + af + ag + ah) / 200) * 10;
             document.getElementById("res").value = parseFloat(z).toFixed(2);
+            if (sgpa > 8.5) {
+                alert("Well done, congratulations🥳🥳!");
+            } else if (sgpa >= 8 && sgpa <= 8.5) {
+                alert("Chill, Congrats!");
+            } else {
+                alert("Enough enough, it's more enough for 20000Rs.");
+            }
         }
 
         function marks(y) {
